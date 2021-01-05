@@ -22,6 +22,8 @@ const App: React.FC = () => {
 		}
 	}, [searchString, setBooks])
 
+	console.log(books)
+
 	return (
 		<>
 			<SearchFrom setSearchString={setSearchString} fetchData={fetchData} />
