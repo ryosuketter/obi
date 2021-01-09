@@ -1,3 +1,3 @@
 # Obi（オビ）
 
-The platform for Book addicts.
+Obi is the platform for Book addicts.
