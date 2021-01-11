@@ -1,11 +1,28 @@
-import React from 'react'
+import React, { useCallback } from 'react'
+import axios, { AxiosResponse } from 'axios'
 
 type Props = {
   handleClick: (event: React.ChangeEvent<HTMLInputElement>) => void
-  fetchData: () => Promise<never[] | undefined>
+  setSearchResult: (result: any) => void
+  searchString: string
 }
 
-const SearchFrom: React.FC<Props> = ({ handleClick, fetchData }) => {
+const SearchFrom: React.FC<Props> = ({ handleClick, setSearchResult, searchString }) => {
+  const fetchData: () => Promise<never[] | undefined> = useCallback(async () => {
+    try {
+      const baseUrl = 'https://www.googleapis.com/books/v1/volumes'
+      const params = {
+        q: `intitle:${searchString}`,
+        Country: 'JP',
+        maxResults: 10
+      }
+      const result: AxiosResponse<any> = await axios.get(baseUrl, { params })
+      setSearchResult(result.data.items)
+    } catch (error) {
+      return []
+    }
+  }, [searchString, setSearchResult])
+
   return (
     <>
       <label>

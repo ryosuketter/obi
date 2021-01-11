@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from 'react'
-import axios from 'axios'
 import List from './components/List'
 import SearchFrom from './components/SearchFrom'
 
@@ -14,24 +13,16 @@ const App: React.FC = () => {
     [setSearchString]
   )
 
-  const fetchData = useCallback(async () => {
-    try {
-      const baseUrl = 'https://www.googleapis.com/books/v1/volumes'
-      const params = {
-        q: `intitle:${searchString}`,
-        Country: 'JP',
-        maxResults: 10
-      }
-      const result = await axios.get(baseUrl, { params })
-      setBooks(result.data.items)
-    } catch (error) {
-      return []
-    }
-  }, [searchString, setBooks])
+  const setSearchResult: (state: any) => void = useCallback(
+    state => {
+      setBooks(state)
+    },
+    [setSearchString]
+  )
 
   return (
     <>
-      <SearchFrom handleClick={handleClick} fetchData={fetchData} />
+      <SearchFrom handleClick={handleClick} setSearchResult={setSearchResult} searchString={searchString} />
       <List books={books} />
     </>
   )
