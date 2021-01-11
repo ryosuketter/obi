@@ -14,7 +14,7 @@ const customStyles: Modal.Styles = {
   }
 }
 
-type Props = {
+interface Props {
   book: any
 }
 

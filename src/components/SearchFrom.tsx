@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import axios, { AxiosResponse } from 'axios'
 
-type Props = {
+interface Props {
   handleClick: (event: React.ChangeEvent<HTMLInputElement>) => void
   setSearchResult: (result: any) => void
   searchString: string

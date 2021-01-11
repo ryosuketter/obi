@@ -2,7 +2,7 @@ import React from 'react'
 import Item from './Item'
 import { Book } from '../Types'
 
-type Props = {
+interface Props {
   books: Book[]
 }
 
