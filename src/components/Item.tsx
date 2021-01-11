@@ -40,10 +40,12 @@ const Item: React.FC<Props> = ({ book }) => {
           <button onClick={openModal}>モーダル表示</button>
         </div>
       )}
-      <Modal id='root' isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles}>
-        <button onClick={closeModal}>close</button>
-        <img src={imageLinks.smallThumbnail} alt={title}></img>
-      </Modal>
+      {imageLinks && (
+        <Modal id='root' isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles}>
+          <button onClick={closeModal}>close</button>
+          <img src={imageLinks.smallThumbnail} alt={title}></img>
+        </Modal>
+      )}
     </li>
   )
 }
