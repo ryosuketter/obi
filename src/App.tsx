@@ -7,6 +7,13 @@ const App: React.FC = () => {
   const [books, setBooks] = useState([])
   const [searchString, setSearchString] = useState('')
 
+  const handleClick: (event: React.ChangeEvent<HTMLInputElement>) => void = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setSearchString(event.target.value)
+    },
+    [setSearchString]
+  )
+
   const fetchData = useCallback(async () => {
     try {
       const baseUrl = 'https://www.googleapis.com/books/v1/volumes'
@@ -24,7 +31,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <SearchFrom setSearchString={setSearchString} fetchData={fetchData} />
+      <SearchFrom handleClick={handleClick} fetchData={fetchData} />
       <List books={books} />
     </>
   )
