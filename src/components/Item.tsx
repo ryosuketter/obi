@@ -20,6 +20,9 @@ interface Props {
 
 const Item: React.FC<Props> = ({ book }) => {
   const [modalIsOpen, setIsOpen] = useState(false)
+  const [obiText, setObiText] = useState('')
+
+  const handleChange = (text: string): void => setObiText(text)
 
   const openModal = (): void => setIsOpen(true)
   const closeModal = (): void => setIsOpen(false)
@@ -43,7 +46,9 @@ const Item: React.FC<Props> = ({ book }) => {
       {imageLinks && (
         <Modal id='root' isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles}>
           <button onClick={closeModal}>close</button>
-          <img src={imageLinks.smallThumbnail} alt={title}></img>
+          <img src={imageLinks.smallThumbnail} alt={title} />
+          <p>{obiText}</p>
+          <input type='text' onChange={e => handleChange(e.target.value)} />
         </Modal>
       )}
     </li>
