@@ -14,6 +14,16 @@ const customStyles: Modal.Styles = {
   }
 }
 
+const cloudinary: {
+  BASEURL: string
+  LEFT: string
+  RIGHT: string
+} = {
+  BASEURL: 'https://res.cloudinary.com/ryosuketter/image/fetch/',
+  LEFT: 'l_text:Sawarabi%20Gothic_20_:',
+  RIGHT: ',co_rgb:333,h_100,w_500,y_110,c_fit/'
+}
+
 interface Props {
   book: any
 }
@@ -21,11 +31,19 @@ interface Props {
 const Item: React.FC<Props> = ({ book }) => {
   const [modalIsOpen, setIsOpen] = useState(false)
   const [obiText, setObiText] = useState('')
+  const [generatedImageURL, setGeneratedImageURL] = useState('')
 
   const handleChange = (text: string): void => setObiText(text)
 
   const openModal = (): void => setIsOpen(true)
   const closeModal = (): void => setIsOpen(false)
+
+  const generateImageURL = (obiText: any, selectedImageURL: any): any => {
+    const replacedURL = selectedImageURL.replace(/\?/g, '%3F')
+    const imageURL = `${cloudinary.BASEURL}${cloudinary.LEFT}${obiText}${cloudinary.RIGHT}${replacedURL}`
+    console.log(imageURL)
+    setGeneratedImageURL(imageURL)
+  }
 
   const {
     volumeInfo: { title, imageLinks }
@@ -49,6 +67,8 @@ const Item: React.FC<Props> = ({ book }) => {
           <img src={imageLinks.smallThumbnail} alt={title} />
           <p>{obiText}</p>
           <input type='text' onChange={e => handleChange(e.target.value)} />
+          <button onClick={() => generateImageURL(obiText, imageLinks.smallThumbnail)}>この文字で帯を作成</button>
+          {!!generatedImageURL && <img src={generatedImageURL} alt={obiText} />}
         </Modal>
       )}
     </li>
