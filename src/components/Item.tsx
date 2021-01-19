@@ -41,7 +41,6 @@ const Item: React.FC<Props> = ({ book }) => {
   const generateImageURL = (obiText: any, selectedImageURL: any): any => {
     const replacedURL = selectedImageURL.replace(/\?/g, '%3F')
     const imageURL = `${cloudinary.BASEURL}${cloudinary.LEFT}${obiText}${cloudinary.RIGHT}${replacedURL}`
-    console.log(imageURL)
     setGeneratedImageURL(imageURL)
   }
 
