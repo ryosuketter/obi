@@ -38,7 +38,7 @@ const Item: React.FC<Props> = ({ book }) => {
   const openModal = (): void => setIsOpen(true)
   const closeModal = (): void => setIsOpen(false)
 
-  const generateImageURL = (obiText: any, selectedImageURL: any): any => {
+  const generateImageURL = (obiText: string, selectedImageURL: string): void => {
     const replacedURL = selectedImageURL.replace(/\?/g, '%3F')
     const imageURL = `${cloudinary.BASEURL}${cloudinary.LEFT}${obiText}${cloudinary.RIGHT}${replacedURL}`
     setGeneratedImageURL(imageURL)
