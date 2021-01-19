@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import List from './components/List'
 import SearchFrom from './components/SearchFrom'
+import { AxiosResponse } from 'axios'
 
 const App: React.FC = () => {
   const [books, setBooks] = useState([])
@@ -13,7 +14,7 @@ const App: React.FC = () => {
     [setSearchString]
   )
 
-  const setSearchResult: (state: any) => void = useCallback(
+  const setSearchResult: (state: []) => void = useCallback(
     state => {
       setBooks(state)
     },
