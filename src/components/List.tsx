@@ -9,7 +9,13 @@ interface Props {
 const List: React.FC<Props> = ({ books }) => {
   return (
     <div>
-      <ul>{books.length > 0 ? books.map(book => <Item key={book.id} book={book} />) : <p>本は1件もありません</p>}</ul>
+      <ul>
+        {!!books && books.length > 0 ? (
+          books.map(book => <Item key={book.id} book={book} />)
+        ) : (
+          <p>本は1件もありません</p>
+        )}
+      </ul>
     </div>
   )
 }
