@@ -1,7 +1,3 @@
-export type Book = {
-  id: string
-}
-
 export interface BookTypes {
   accessInfo: {
     accessViewStatus: string

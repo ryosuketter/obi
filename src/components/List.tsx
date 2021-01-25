@@ -1,9 +1,9 @@
 import React from 'react'
 import Item from './Item'
-import { Book } from '../Types'
+import { BookTypes } from '../Types'
 
 interface Props {
-  books: Book[]
+  books: BookTypes[]
 }
 
 const List: React.FC<Props> = ({ books }) => {
