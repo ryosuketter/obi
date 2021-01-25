@@ -23,10 +23,14 @@ const SearchFrom: React.FC<Props> = ({ handleClick, setSearchResult, searchStrin
     }
   }, [searchString, setSearchResult])
 
+  const keyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') fetchData()
+  }
+
   return (
     <>
       <label>
-        <input placeholder='本のタイトルを検索' onChange={e => handleClick(e)} />
+        <input placeholder='本のタイトルを検索' onChange={e => handleClick(e)} onKeyPress={e => keyPress(e)} />
         <button onClick={fetchData}>検索</button>
       </label>
     </>
