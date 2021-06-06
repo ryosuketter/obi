@@ -1,20 +1,20 @@
 {
-	"compilerOptions": {
-		"target": "es5", // target: どのバージョンでjsを出力するか
-		"lib": ["dom", "dom.iterable", "esnext"], // コンパイルする際に使用する組み込みライブラリを指定（基本はtargetで指定のjsのバージョンにあるものは暗黙的に指定されるが、そうでないものは明示的に指定する）
-		"allowJs": false, // これをtrueにしておくと、.jsと.jsxもコンパイル対象に含まれる
-		"skipLibCheck": true, // すべての型定義ファイル（*.d.ts）の型チェックをスキップする
-		"esModuleInterop": true, // CommonJSモジュールとESモジュール間の相互運用性を,すべてのインポート用に名前空間オブジェクトを作成することを可能にする
-		"allowSyntheticDefaultImports": true,
-		"strict": true, // すべての厳密な型チェックオプションを有効にする
-		"forceConsistentCasingInFileNames": true, // import時にファイルパスの文字列で大文字小文字を区別する
-		"noFallthroughCasesInSwitch": true, // https://qiita.com/ryokkkke/items/390647a7c26933940470#nofallthroughcasesinswitch
-		"module": "esnext", // 出力するjsのモジュールの仕組みとして何を使用するかを指定
-		"moduleResolution": "node", // tscのモジュール解決の方法を指定
-		"resolveJsonModule": true,
-		"isolatedModules": true, // 各ファイルを個別のモジュールとしてトランスポートする
-		"noEmit": true, // trueにするとコンパイル結果を出力しなくなる
-		"jsx": "react-jsx" // tsxファイルをjsxやjsにコンパイルする際の出力の形式を指定
-	},
-	"include": ["src"] // コンパイルする対象ファイル
+  "compilerOptions": {
+    "target": "es5", // target: どのバージョンでjsを出力するか
+    "lib": ["dom", "dom.iterable", "esnext"], // コンパイルする際に使用する組み込みライブラリを指定（基本はtargetで指定のjsのバージョンにあるものは暗黙的に指定されるが、そうでないものは明示的に指定する）
+    "allowJs": false, // これをtrueにしておくと、.jsと.jsxもコンパイル対象に含まれる
+    "skipLibCheck": true, // すべての型定義ファイル（*.d.ts）の型チェックをスキップする
+    "esModuleInterop": true, // CommonJSモジュールとESモジュール間の相互運用性を,すべてのインポート用に名前空間オブジェクトを作成することを可能にする
+    "allowSyntheticDefaultImports": true,
+    "strict": true, // すべての厳密な型チェックオプションを有効にする
+    "forceConsistentCasingInFileNames": true, // import時にファイルパスの文字列で大文字小文字を区別する
+    "noFallthroughCasesInSwitch": true, // https://qiita.com/ryokkkke/items/390647a7c26933940470#nofallthroughcasesinswitch
+    "module": "esnext", // 出力するjsのモジュールの仕組みとして何を使用するかを指定
+    "moduleResolution": "node", // tscのモジュール解決の方法を指定
+    "resolveJsonModule": true,
+    "isolatedModules": true, // 各ファイルを個別のモジュールとしてトランスポートする
+    "noEmit": true, // trueにするとコンパイル結果を出力しなくなる
+    "jsx": "react-jsx" // tsxファイルをjsxやjsにコンパイルする際の出力の形式を指定
+  },
+  "include": ["src"] // コンパイルする対象ファイル
 }
