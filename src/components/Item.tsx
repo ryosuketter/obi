@@ -28,7 +28,7 @@ interface Props {
   book: any
 }
 
-const Item: React.FC<Props> = ({ book }) => {
+export const Item: React.FC<Props> = ({ book }) => {
   const [modalIsOpen, setIsOpen] = useState(false)
   const [obiText, setObiText] = useState('')
   const [generatedImageURL, setGeneratedImageURL] = useState('')
@@ -73,5 +73,3 @@ const Item: React.FC<Props> = ({ book }) => {
     </li>
   )
 }
-
-export default Item
